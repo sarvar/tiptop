@@ -1,0 +1,20 @@
+@import 'mixins';
+
+$fonts: (
+  // Thin: 100,
+  // UlraLight: 200,
+  // Light: 300,
+  Regular: 400,
+  // Medium: 500,
+  // Semibold: 600,
+  // Bold: 700,
+  // Heavy: 800,
+  // Black: 900
+  );
+@each $name, $weight in $fonts {
+  @include font-face((
+    family: "FontName",
+    path: "../dependencies/fonts/#{$name}.woff",
+    weight: $weight
+  ));
+}

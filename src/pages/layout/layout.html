@@ -1,0 +1,26 @@
+{% import 'partials/_macro.html' as macro %}
+{%- set siteName = 'Template' %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta charset="UTF-8">
+  <title>{{ siteName }}</title>
+  {%- for style in styles %}
+  <link rel="stylesheet" href="{{ style }}">
+  {%- endfor %}
+  {% block meta %}{% endblock %}
+</head>
+<body>
+  <div class="page-wrap">
+  {% include 'partials/header.html' %}
+  {% block content %}{% endblock %}
+  {% include 'partials/footer.html' %}
+  </div>
+  {%- for script in scripts %}
+  <script src="{{ script }}"></script>
+  {%- endfor %}
+  {% block scripts %}{% endblock %}
+</body>
+</html>

@@ -1,0 +1,89 @@
+@mixin font-face($map) {
+  @font-face {
+    font-family: map-get($map, "family");
+    font-weight: map-get($map, "weight");
+    src: url(map-get($map, "path"));
+  }
+}
+@function rem($pixels, $context: $font-size) {
+  @if(unitless($pixels)) {
+    $pixels: $pixels * 1px;
+  }
+
+  @if(unitless($context)) {
+    $context: $context * 1px;
+  }
+
+  @return $pixels / $context * 1rem;
+}
+@function em($pixels, $context: $font-size) {
+  @if(unitless($pixels)) {
+    $pixels: $pixels * 1px;
+  }
+
+  @if(unitless($context)) {
+    $context: $context * 1px;
+  }
+
+  @return $pixels / $context * 1em;
+}
+@function vh($pixels, $context: 1080px) {
+  @if(unitless($pixels)) {
+    $pixels: $pixels * 1px;
+  }
+
+  @if(unitless($context)) {
+    $context: $context * 1px;
+  }
+
+  @return $pixels / $context * 100vh;
+}
+@function size($pixels, $context: map-get($containers, "normal")) {
+  @if(unitless($pixels)) {
+    $pixels: $pixels * 1px;
+  }
+
+  @if(unitless($context)) {
+    $context: $context * 1px;
+  }
+
+  @return $pixels / $context * 100%;
+}
+
+@mixin text($font, $line, $context: $font-size) {
+  font-size: rem($font, $context);
+  line-height: em($line, $font);
+}
+
+@mixin clearfix() {
+  &:after {
+    content: '';
+    display: block;
+    clear: both;
+  }
+}
+@mixin placeholder {
+  ::-webkit-input-placeholder   {@content}
+  ::-moz-placeholder            {@content}
+  :-ms-input-placeholder        {@content}
+  :-moz-placeholder             {@content}
+  &::placeholder                {@content}
+}
+@mixin transition($map) {
+  $string: null;
+  @each $property, $timing in $map {
+    $speed: $timing;
+    @if $timing == 'fast' {
+      $speed: $transition-fast;
+    } @else if $timing == 'medium' {
+      $speed: $transition-medium;
+    } @else if $timing == 'long' {
+      $speed: $transition-long;
+    } @else if $timing == 'slow' {
+      $speed: $transition-slow;
+    }
+
+    $string: unquote("#{$string} #{$property} #{$speed}, ");
+  }
+  transition: $string;
+}

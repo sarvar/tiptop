@@ -1,0 +1,39 @@
+$font-main: sans-serif;
+
+$font-size: 15px;
+
+$color-text-light: #9A9AB1;
+$color-text-main: #001D38;
+
+$color-main: #3D79F2;
+
+$containers: (
+  normal: 1170px,
+  small: 970px,
+  tablet: 768px,
+  tablet-small: 710px
+);
+
+$desktop: map-get($containers, "normal") + 30px;
+$desktop-small: map-get($containers, "small") + 30px;
+$tablet: map-get($containers, "tablet") + 30px;
+$tablet-small: map-get($containers, "tablet-small") + 30px;
+$mobile-large: 460px;
+$mobile: 365px;
+$mobile-small: 340px;
+
+$media: (
+  d: $desktop,
+  ds: $desktop-small,
+  t: $tablet,
+  ts: $tablet-small,
+  mbl: $mobile-large,
+  mb: $mobile
+);
+
+$gutter: 15px;
+
+$transition-fast: 0.14s ease-out;
+$transition-medium: 0.2s ease-in;
+$transition-slow: 0.32s ease-in-out;
+$transition-long: 0.64s ease-out;
