@@ -1,2 +1,2 @@
 // Example of importing
-/* window.Flickity = require('flickity'); */
+window.Flickity = require('flickity');

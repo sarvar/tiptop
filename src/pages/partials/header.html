@@ -1,0 +1,55 @@
+<header class="header-container">
+  <div class="container">
+    <div class="header">
+      <div class="logo">
+        <a class="logo__link" href="/" title="">
+          <svg>
+            <use href="img/icons.svg#logo"></use>
+          </svg>
+        </a>
+      </div>
+      <nav class="header__nav">
+        <ul class="navmenu">
+          {%- for item in [
+            { title: "ГЛАВНАЯ", link: "index.html" },
+            { title: "ПРОДУКЦИЯ", link: "catalog.html" },
+            { title: "О КОМПАНИИ",  link: "about.html" },
+            { title: "АКЦИИ",  link: "aksii.html" },
+            { title: "ВАКАНСИИ",  link: "vacancy.html" },
+            { title: "НОВОСТИ",  link: "news.html" },
+            { title: "КОНТАКТЫ",  link: "contacts.html" }
+          ] %}
+          <li class="navmenu__item">
+            <a class="navmenu__link" href="{{ item.link }}">
+              <span>{{ item.title }}</span>
+            </a>
+          </li>
+          {%- endfor %}
+        </ul>
+      </nav>
+      <div class="header__right">
+        <button type="button" class="btnSearch open_close_menu_search">
+          <i class="icon-search"></i>
+        </button>
+        <button type="button" data-modal-toggle="call-back" class="btn btn-orange btnModal open_close_modal">
+          <span>Обратная связь</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="menu_search_block menu_search_block">
+    <button class="close_menu_search open_close_menu_search">
+      <i class="icon-cancel"></i>
+    </button>
+    <form class="modal-search">
+      <div class="menu_search_block_child">
+        <input type="text" class="menu_search_block_child_input" placeholder="Поиск" />
+        <button class="btn-search" type="button">
+          <i class="icon-search"></i>
+        </button>
+      </div>
+    </form>
+  </div>
+
+</header>

@@ -1,0 +1,137 @@
+// Bootstrap like offset system
+
+/* 
+  Using: <margin/padding><direction>-<size>-<media>
+  Example: mt-3-t
+ */
+
+// It's need to make media offset system
+$media: (d: $desktop,
+  ds: $desktop-small,
+  t: $tablet,
+  ts: $tablet-small,
+  ml: $mobile-large,
+  mm: $mobile-medium,
+  ms: $mobile-small,
+);
+$offsets: (0: 0, 1: 10px, 2: 20px, 3: 30px,
+  4: 40px, 5: 50px, 6: 60px, 7: 70px,
+  8: 80px,
+  "05": 5px,
+  15: 15px, 25: 25px, 35: 35px, 45: 45px, 55: 55px,
+  10: 100px,
+  auto: auto);
+$directions: (r: right, t: top, l: left, b: bottom);
+
+@each $i,
+$px in $offsets {
+  .m-#{$i} {
+    margin: $px;
+  }
+
+  .p-#{$i} {
+    margin: $px;
+  }
+}
+
+.dn {
+  display: none;
+}
+
+.db {
+  display: block;
+}
+
+// Offsets in normal viewport
+@each $d,
+$margin in $directions {
+
+  @each $i,
+  $px in $offsets {
+    .m#{$d}-#{$i} {
+      margin-#{$margin}: $px !important;
+    }
+
+    .p#{$d}-#{$i} {
+      padding-#{$margin}: $px !important;
+    }
+  }
+}
+
+// Offsets in media queries
+@each $m,
+$media-start in $media {
+  @media(max-width: $media-start) {
+    .df-#{$m} {
+      display: flex;
+      align-items: flex-start;
+    }
+
+    .df-a-c-#{$m} {
+      align-items: center;
+    }
+
+    .df-a-e-#{$m} {
+      align-items: flex-end;
+    }
+
+    .df-a-s-#{$m} {
+      align-items: stretch;
+    }
+
+    .df-j-s-#{$m} {
+      justify-content: space-between;
+    }
+
+    .df-j-a-#{$m} {
+      justify-content: space-around;
+    }
+
+    .df-j-e-#{$m} {
+      justify-content: flex-end;
+    }
+
+    .df-j-c-#{$m} {
+      justify-content: center;
+    }
+
+    .df-wrap-#{$m} {
+      flex-wrap: wrap;
+    }
+
+    .dn-#{$m} {
+      display: none;
+    }
+
+    .db-#{$m} {
+      display: block;
+    }
+
+    @each $d,
+    $margin in $directions {
+
+      @each $i,
+      $px in $offsets {
+        .m#{$d}-#{$i}-#{$m} {
+          margin-#{$margin}: $px;
+        }
+
+        .p#{$d}-#{$i}-#{$m} {
+          padding-#{$margin}: $px;
+        }
+      }
+    }
+
+    @each $i,
+    $px in $offsets {
+      .m-#{$i}-#{$m} {
+        margin: $px;
+      }
+
+      .p-#{$i}-#{$m} {
+        margin: $px;
+      }
+    }
+
+  }
+}

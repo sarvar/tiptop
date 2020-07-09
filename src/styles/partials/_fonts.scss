@@ -1,20 +1,27 @@
 @import 'mixins';
 
-$fonts: (
-  // Thin: 100,
+@mixin font-face($map) {
+  @font-face {
+    font-family: map-get($map, "family");
+    font-weight: map-get($map, "weight");
+    src: url(map-get($map, "path"));
+  }
+}
+
+$fonts: ( // Thin: 100,
   // UlraLight: 200,
   // Light: 300,
   Regular: 400,
   // Medium: 500,
-  // Semibold: 600,
-  // Bold: 700,
+  Semibold: 600,
+  Bold: 700,
   // Heavy: 800,
   // Black: 900
-  );
-@each $name, $weight in $fonts {
-  @include font-face((
-    family: "FontName",
-    path: "../dependencies/fonts/#{$name}.woff",
-    weight: $weight
-  ));
+);
+
+@each $name,
+$weight in $fonts {
+  @include font-face((family: "MazzardH",
+      path: "/fonts/MazzardH/MazzardH-#{$name}.woff",
+      weight: $weight));
 }

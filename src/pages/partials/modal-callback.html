@@ -1,0 +1,17 @@
+<article class="modal modal-trial" id="call-back">
+  <div class="modal__overlay" data-modal-close="call-back"></div>
+  <div class="modal-window">
+    <form class="modal-window__form">
+      <h2 class="modal-window__heading">Обратная связь</h2>
+      {%- for item in [
+        {title: "Ваше имя", type: "text"},
+        {title: "Электронная почта", type: "email"},
+        {title: "Номер телефона", type: "phone"}
+      ] %}
+      <input type="{{ item.type }}" placeholder="{{ item.title}}" class="modal-window__item input-item">
+      {%- endfor %}
+      <button class="modal-window__button button">Отправить</button>
+    </form>
+    <div class="modal-window__cancel text-small" data-modal-close="call-back">Отмена</div>
+  </div>
+</article>

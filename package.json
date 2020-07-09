@@ -47,5 +47,8 @@
       ]
     ]
   },
-  "dependencies": {}
+  "dependencies": {
+    "flickity": "^2.2.1",
+    "izimodal": "^1.5.1"
+  }
 }

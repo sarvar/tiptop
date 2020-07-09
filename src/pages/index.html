@@ -1,3 +1,130 @@
 {% extends "layout/layout.html" %}
 {% block content %}
+<section class="head-section" data-to-animate>
+  {%- for slide in range(0, 5) %}
+  <div class="head-section__slide container">
+    <div class="head-section__content">
+      <h1 class="head-section__heading heading-large"><span class="color-green">Яблочное</span> пюре</h1>
+      <p class="head-section__description text-medium">Умелое сочетание тщательно отобранных сортов яблок создает особый
+        вкус MarvelJuice. При комнатной температуре в аромате сока чувствуются нежные цветочные ноты. Сбалансированный,
+        обволакивающий вкус спелого сочного яблока мягкий, умеренно-сладкий, округлый с долгим медово-карамельным
+        послевкусием.
+      </p>
+      <div class="head-section__bottom">
+        <!-- <div class="head-section__info">
+          <div class="head-section__info--item">
+            <span>15%</span>
+            <span class="small-text">витамин А</span>
+          </div>
+          <div class="head-section__info--item">
+            <span>15%</span>
+            <span class="small-text">натуральный</span>
+          </div>
+        </div> -->
+        <a href="#" class="head-section__button btn btn-orange">Подробно</a>
+      </div>
+    </div>
+    <div class="head-section__image">
+      <img src="img/covers/slider01.png" alt="" />
+    </div>
+  </div>
+  {% endfor %}
+  <div class="head-section__controls container container--width">
+    <button class="head-section__arrow slider-button slider-button--white head-section__arrow--previous">
+      <svg>
+        <use href="img/icons.svg#chevron-left"></use>
+      </svg>
+    </button>
+    <button class="head-section__arrow slider-button slider-button--white head-section__arrow--next">
+      <svg>
+        <use href="img/icons.svg#chevron-right"></use>
+      </svg>
+    </button>
+  </div>
+</section>
+
+<section class="home-content">
+  <div class="container">
+    <div class="tiptop-grid gridbox">
+      <div class="tiptop-width-1-3@l tiptop-width-1-3@m tiptop-width-1-1@s">
+        <div class="gridbox__item">
+          <div class="gridbox__part gridbox__inner gridbox__inner--about">
+            <div class="gridbox__content">
+              <h2 class="gridbox__title">О компании</h2>
+              <ul class="gridmenu">
+                {%- for item in [
+                  { title: "Документация", link: "index.html" },
+                  { title: "Организационная структура", link: "index.html" },
+                  { title: "Вакансии", link: "index.html" }
+                ] %}
+                <li class="gridmenu__item">
+                  <a class="gridmenu__link" href="{{ item.link }}">
+                    <span>{{ item.title }}</span>
+                  </a>
+                </li>
+                {%- endfor %}
+              </ul>
+            </div>
+          </div>
+          <div class="gridbox__part gridbox__inner gridbox__inner--aksiya">
+            <div class="gridbox__content">
+              <h2 class="gridbox__title">Акции компании</h2>
+              <p>Самые нужные и свежие акции компании</p>
+              <a href="#" title="" class="btn btn-default">Подробнее</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="tiptop-width-1-3@l tiptop-width-1-3@m tiptop-width-1-1@s">
+        <div class="gridbox__item">
+          <div class="gridbox__inner">
+            <div class="gridbox__image">
+              <img src="img/img01.png" alt="" />
+            </div>
+            <div class="gridbox__body">
+              <h2 class="gridbox__title">Продукция компании</h2>
+              <p>Новая стеклянная бутылочка, совершенная в своей простоте и изяществе граней, создана для наслаждения
+                великолепным вкусом сока. От одного из самых известных дизайнеров Америки Карима Рашида.</p>
+              <a href="#" title="" class="read-more">Подробнее <i class="icon-right-open-mini"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="tiptop-width-1-3@l tiptop-width-1-3@m tiptop-width-1-1@s">
+        <div class="gridbox__item">
+          <div class="gridbox__inner">
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}
+{% block scripts %}
+<script>
+  (function headSlider() {
+    var slider = document.querySelector(".head-section");
+    var controls = slider.querySelector(".head-section__controls");
+    var buttonPrevious = slider.querySelector(".head-section__arrow--previous");
+    var buttonNext = slider.querySelector(".head-section__arrow--next");
+    var flkty = new Flickity(slider, {
+      contain: true,
+      cellAlign: "left",
+      prevNextButtons: true,
+      cellSelector: ".head-section__slide",
+      wrapAround: true,
+      autoPlay: 400000000000,
+      pauseAutoPlayOnHover: true
+    });
+    controls.append(slider.querySelector(".flickity-page-dots"));
+    buttonPrevious.addEventListener("click", function () {
+      flkty.previous()
+    });
+    buttonNext.addEventListener("click", function () {
+      flkty.next()
+    });
+  })();
+  animate();
+</script>
 {% endblock %}
