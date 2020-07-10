@@ -47,53 +47,86 @@
   <div class="container">
     <div class="tiptop-grid gridbox">
       <div class="tiptop-width-1-3@l tiptop-width-1-3@m tiptop-width-1-1@s">
-        <div class="gridbox__item">
-          <div class="gridbox__part gridbox__inner gridbox__inner--about">
-            <div class="gridbox__content">
-              <h2 class="gridbox__title">О компании</h2>
-              <ul class="gridmenu">
-                {%- for item in [
-                  { title: "Документация", link: "index.html" },
-                  { title: "Организационная структура", link: "index.html" },
-                  { title: "Вакансии", link: "index.html" }
-                ] %}
-                <li class="gridmenu__item">
-                  <a class="gridmenu__link" href="{{ item.link }}">
-                    <span>{{ item.title }}</span>
-                  </a>
-                </li>
-                {%- endfor %}
-              </ul>
-            </div>
+        <div class="gridbox__part gridbox__item gridbox__item--about">
+          <div class="gridbox__content">
+            <h2 class="gridbox__title">О компании</h2>
+            <ul class="gridmenu">
+              {%- for item in [
+                { title: "Документация", link: "index.html" },
+                { title: "Организационная структура", link: "index.html" },
+                { title: "Вакансии", link: "index.html" }
+              ] %}
+              <li class="gridmenu__item">
+                <a class="gridmenu__link" href="{{ item.link }}">
+                  <span>{{ item.title }}</span>
+                </a>
+              </li>
+              {%- endfor %}
+            </ul>
           </div>
-          <div class="gridbox__part gridbox__inner gridbox__inner--aksiya">
-            <div class="gridbox__content">
-              <h2 class="gridbox__title">Акции компании</h2>
-              <p>Самые нужные и свежие акции компании</p>
-              <a href="#" title="" class="btn btn-default">Подробнее</a>
-            </div>
+        </div>
+        <div class="gridbox__part gridbox__item gridbox__item--aksiya">
+          <div class="gridbox__content">
+            <h2 class="gridbox__title">Акции компании</h2>
+            <p>Самые нужные и свежие акции компании</p>
+            <a href="#" title="" class="btn btn-default">Подробнее</a>
           </div>
         </div>
       </div>
       <div class="tiptop-width-1-3@l tiptop-width-1-3@m tiptop-width-1-1@s">
         <div class="gridbox__item">
-          <div class="gridbox__inner">
-            <div class="gridbox__image">
-              <img src="img/img01.png" alt="" />
-            </div>
-            <div class="gridbox__body">
-              <h2 class="gridbox__title">Продукция компании</h2>
-              <p>Новая стеклянная бутылочка, совершенная в своей простоте и изяществе граней, создана для наслаждения
-                великолепным вкусом сока. От одного из самых известных дизайнеров Америки Карима Рашида.</p>
-              <a href="#" title="" class="read-more">Подробнее <i class="icon-right-open-mini"></i></a>
-            </div>
+          <div class="gridbox__image">
+            <img src="img/img01.png" alt="" />
+          </div>
+          <div class="gridbox__body">
+            <h2 class="gridbox__title">Продукция компании</h2>
+            <p>Новая стеклянная бутылочка, совершенная в своей простоте и изяществе граней, создана для наслаждения
+              великолепным вкусом сока. От одного из самых известных дизайнеров Америки Карима Рашида.</p>
+            <a href="#" title="" class="read-more">Подробнее <i class="icon-right-open-mini"></i></a>
           </div>
         </div>
       </div>
       <div class="tiptop-width-1-3@l tiptop-width-1-3@m tiptop-width-1-1@s">
         <div class="gridbox__item">
-          <div class="gridbox__inner">
-
+          <ul class="newslist">
+            {%- for item in [
+              { 
+                title: "Президент сменил руководство в трех госведомствах",
+                description: "Поздравляем победителей",
+                date: "31.03.2020",
+                link: "link1.html"
+              },
+              { 
+                title: "Президент сменил руководство в трех госведомствах",
+                description: "Поздравляем победителей",
+                date: "31.03.2020",
+                link: "link1.html"
+              },
+              { 
+                title: "Президент сменил руководство в трех госведомствах",
+                description: "Поздравляем победителей",
+                date: "31.03.2020",
+                link: "link1.html"
+              }
+            ] %}
+            <li class="newslist__item">
+              <h6 class="newslist__title">
+                <a class="newslist__link" href="{{ item.link }}">{{ item.title }}</a>
+              </h6>
+              <div class="newslist__date">{{ item.date }}</div>
+              <div class="newslist__descrp">{{ item.description }}</div>
+              <a class="read-more" href="{{ item.link }}" title="">Читать дальше <i
+                  class="icon-right-open-mini"></i></a>
+            </li>
+            {%- endfor %}
+          </ul>
+        </div>
+      </div>
+      <div class="tiptop-width-1-2@l tiptop-width-1-2@m tiptop-width-1-1@s">
+        <div class="gridbox__item">
+          <div class="grid-row grid-row--j-s">
+            <h2 class="gridbox__title">Наши партнеры</h2>
+            <a class="color-blue fs14" href="#" title="">Все партнеры</a>
           </div>
         </div>
       </div>

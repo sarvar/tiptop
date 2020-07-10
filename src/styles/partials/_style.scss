@@ -485,11 +485,6 @@
 
 .gridbox {
 
-  &__item {
-    margin-bottom: 15px;
-    height: 100%;
-  }
-
   &__part {
     display: flex;
     justify-content: space-between;
@@ -515,10 +510,16 @@
     margin-bottom: 30px;
   }
 
-  &__inner {
+  &__item {
     background-color: $white;
     border-radius: 4px;
     padding: 40px 20px;
+    height: 100%;
+
+    &--about,
+    &--aksiya {
+      height: calc(50% - 7.5px);
+    }
 
     &--about {
       background-color: $orange;
@@ -526,7 +527,7 @@
       &:after {
         background-image: url(/img/img.png);
         right: 0;
-        top: -20px;
+        bottom: 0;
         width: 259px;
         height: 283px;
       }
@@ -560,7 +561,7 @@
     img {
       display: block;
       position: absolute;
-      top: -35px;
+      top: 0;
       left: 0;
       width: 100%;
       height: 100%;
@@ -571,6 +572,11 @@
 
   &__body {
     height: calc(100% - 260px);
+    padding-top: 20px;
+  }
+
+  >div {
+    margin-bottom: 15px;
   }
 }
 
@@ -608,4 +614,45 @@
     line-height: 0;
     vertical-align: middle;
   }
+}
+
+.newslist {
+  &__item {
+    border-bottom: 1px solid $gray;
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+    display: block;
+    line-height: 20px;
+
+    &:last-child {
+      border-bottom: 0 none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+  }
+
+  &__title {
+    margin-bottom: 10px;
+  }
+
+  &__date {
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+
+  &__descrp {
+    font-size: 15px;
+    color: #888;
+    margin-bottom: 10px;
+  }
+}
+
+.color {
+  &-blue {
+    color: $blue;
+  }
+}
+
+.fs14 {
+  font-size: 14px;
 }
